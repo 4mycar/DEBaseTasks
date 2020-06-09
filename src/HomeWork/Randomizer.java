@@ -14,6 +14,17 @@ public class Randomizer {
 
     }
 
+    private static int[] fillArrayWithNumbers (int[] arr, int number){
+        int i=0;
+        int arrLength = arr.length;
+        do{
+            arr[i]=-1;
+            i++;
+        }while(i<arrLength);
+
+        return arr;
+    }
+
     private static int getIndexInArray (int[] arr, int num){ //возвращает индекс вхождения элемента в массив или -1 в случае отсутствия
         int result=-1;
         int arrLength = arr.length;
@@ -41,7 +52,7 @@ public class Randomizer {
         String key;
 
         int range = Math.abs(end - start) + 1;
-        int[] existingNumbers = new int[range];
+        int[] existingNumbers = fillArrayWithNumbers(new int[range], -1);
         int randNum = getRandomNumWithRange(start, end);
         boolean isUnique;
         int i=0;
