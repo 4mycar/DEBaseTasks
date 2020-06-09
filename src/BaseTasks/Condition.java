@@ -2,7 +2,7 @@ package BaseTasks;
 
 public class Condition {
 
-    private static boolean isEven (double x){
+    public static boolean isEven (double x){
         return x % 2 == 0;
     }
 
@@ -38,8 +38,8 @@ public class Condition {
     }
 
 
-    public static Double getPositiveNumSumOfNumbers (double a, double b, double c) {
-        Double result = 0.0;
+    public static double getPositiveNumSumOfNumbers (double a, double b, double c) {
+        double result = 0.0;
 
         if (a > 0)
             result = result + a;
@@ -52,9 +52,9 @@ public class Condition {
     }
 
 
-    public static Double getMaxValue (double a, double b, double c) {
+    public static double getMaxValue (double a, double b, double c) {
 
-        Double result;
+        double result;
 
         if (a * b * c > a + b + c)
             result = a * b * c + 3;
