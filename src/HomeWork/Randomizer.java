@@ -5,11 +5,29 @@ import java.util.Scanner;
 
 public class Randomizer {
 
+    private int [] array;
+
     public static int getRandomNumWithRange(int start, int end)
     {
         int range = Math.abs(end - start)+1;
-        return (int) ((Math.random() * range) + (start <= end ? start : end) ); //здесь защита от того что начало диапазона будет больше конца
+        return (int) ((Math.random() * range) + (start <= end ? start : end) );
 
+    }
+
+    private static int getIndexInArray (int[] arr, int num){ //возвращает индекс вхождения элемента в массив или -1 в случае отсутствия
+        int result=-1;
+        int arrLength = arr.length;
+        int i=0;
+        do{
+            if (arr[i]==num){
+                result=i;
+                break;
+            }
+            i++;
+
+        }while(i<arrLength);
+
+        return  result;
     }
 
     public static void getRandomUniqueNum()
@@ -21,25 +39,30 @@ public class Randomizer {
         int end = input.nextInt();
         System.out.println("Your range is: " + start + " - " + end);
         String key;
-        ArrayList<Integer> existingNumbers = new ArrayList<>();
+
         int range = Math.abs(end - start) + 1;
-        int randNum = Randomizer.getRandomNumWithRange(start, end);
+        int[] existingNumbers = new int[range];
+        int randNum = getRandomNumWithRange(start, end);
         boolean isUnique;
+        int i=0;
 
         do {
+
             do {
-                if (existingNumbers.contains(randNum)) {
+                int indexInArr = getIndexInArray(existingNumbers, randNum);
+                if (indexInArr!=-1) {
                     isUnique = false;
                     randNum = getRandomNumWithRange(start, end);
                 } else {
-                    existingNumbers.add(randNum);
+                    existingNumbers[i]=randNum;
                     isUnique = true;
+                    i++;
                 }
             }while (!isUnique);
 
             System.out.println("Your rand num is: "+randNum);
 
-            if (existingNumbers.size() == range) {
+            if (i == range) {
                 System.out.println("There is no more unique numbers in this range");
                 break;
             }
@@ -48,6 +71,7 @@ public class Randomizer {
             key = input.next();
 
         }while (!"n".equals(key));
+
         System.out.println("Bye-Bye :)");
         System.exit(0);
     }
