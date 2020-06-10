@@ -50,6 +50,7 @@ public class GuessANumber {
 
         Scanner input = new Scanner(System.in);
         String key;
+
         do{
             System.out.println("Сыграем еще раз? y/n");
             key = input.next();
