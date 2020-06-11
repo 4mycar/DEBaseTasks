@@ -1,0 +1,3 @@
+guessANumberRange = 1,150
+guessANumberTriesCount = 4
+guessANumberIsRepeat = true

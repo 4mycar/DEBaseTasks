@@ -4,21 +4,23 @@ import java.util.Scanner;
 
 public class GuessANumber {
 
-    private static void gameGuess (int minValueOfRange, int maxValueOfRange, int trys) {
+    Scanner input = new Scanner(System.in);
+    String key;
+
+    private void gameGuess (int minValueOfRange, int maxValueOfRange, int trys) {
         int inputedNumber;
-        int trysCount = trys;
         int unknownNumber = Randomizer.getRandomNumWithRange(minValueOfRange, maxValueOfRange);
         int oldRange = Math.abs(maxValueOfRange-minValueOfRange)/2;
         int newRange;
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Привет! я загадал число от "+minValueOfRange+" до "+maxValueOfRange+
-                ". У тебя есть "+trys+" попыток его отгадать");
+
+        System.out.println(String.format("Привет! я загадал число от %s до %s. У тебя есть %s попыток его отгадать",
+                minValueOfRange, maxValueOfRange, trys) );
 
         do {
-            System.out.print("Осталось " + trysCount + " попыток. Введи свое число:");
-            inputedNumber = input.nextInt();
-            trysCount--;
+            System.out.print("Осталось " + trys + " попыток. Введи свое число:");
+            inputedNumber = this.input.nextInt();
+            trys--;
             newRange = Math.abs(unknownNumber-inputedNumber);
 
             if(inputedNumber==unknownNumber){
@@ -33,31 +35,32 @@ public class GuessANumber {
 
             oldRange=newRange;
 
-        } while (inputedNumber != unknownNumber && trysCount>0);
+        } while (inputedNumber != unknownNumber && trys>0);
 
-        if (trysCount == 0){
+        if (trys == 0){
             System.out.println("Попытки исчерпаны, ты не угадал! Было загадано число = " + unknownNumber);
         }
     }
 
     public static void startGame () {
+        Settings settings = new Settings();
+        GuessANumber guessANumber = new GuessANumber();
 
-        int minValueOfRange = 0;
-        int maxValueOfRange = 149;
-        int trys = 5;
-
-        gameGuess(minValueOfRange,maxValueOfRange,trys);
-
-        Scanner input = new Scanner(System.in);
-        String key;
+        int minValueOfRange = settings.getGuessANumberRange()[0];
+        int maxValueOfRange = settings.getGuessANumberRange()[1];
+        int trys = settings.getGuessANumberTriesCount();
+        boolean isRepeat = settings.isGuessANumberIsRepeat();
 
         do{
-            System.out.println("Сыграем еще раз? y/n");
-            key = input.next();
-            if(!"n".equals(key)){
-                gameGuess(minValueOfRange,maxValueOfRange,trys);
+           guessANumber.gameGuess(minValueOfRange,maxValueOfRange,trys);
+
+            if (isRepeat){
+                System.out.println("Сыграем еще раз? y/n");
+                guessANumber.key = guessANumber.input.next();
+                isRepeat = !"n".equals(guessANumber.key);
             }
-        }while (!"n".equals(key));
+
+        }while (isRepeat);
 
         System.out.println("Пока-пока!");
 

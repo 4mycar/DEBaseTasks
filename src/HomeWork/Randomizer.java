@@ -5,12 +5,11 @@ import java.util.Scanner;
 
 public class Randomizer {
 
-    private int [] array;
 
     public static int getRandomNumWithRange(int start, int end)
     {
         int range = Math.abs(end - start)+1;
-        return (int) ((Math.random() * range) + (start <= end ? start : end) );
+        return (int) ((Math.random() * range) + (Math.min(start, end)) );
 
     }
 
