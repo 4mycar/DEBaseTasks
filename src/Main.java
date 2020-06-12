@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        GuessANumber.startGame();
+        System.out.println(Cycle.getCountAndSumEvenNumsByRange(1,99));
+//        GuessANumber.startGame();
     }
 }

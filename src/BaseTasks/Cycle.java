@@ -16,6 +16,7 @@ public class Cycle {
         }
 
         return String.format("Range from %d to %s has %d even nums, sum is %d", first, last, count, sum);
+        //Возвращаем строку,  а не объект с полями для упрощения. Можно переписать на объект или Map
     }
 
     public static boolean isPrimeNum (int num){
@@ -25,30 +26,20 @@ public class Cycle {
         while (divider*divider <= num & num % divider != 0){
             divider++;
         }
-        System.out.println(divider);
-
-        if (num % divider != 0){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return num % divider != 0;
 
     }
 
-    public static double getSqrtByNumber (int num){
+    public static int getSqrtByNumber (int num){
 
-        double root = num / 2;
-        double eps = 0.01;
-        int iter = 0;
-        while( root - num / root > eps ){
-            iter++;
-            root = 0.5 * (root + num / root);
-            System.out.println(String.format("Iteration: %d : root = %f", iter, root));
+        double sqrt = num * 0.5;
+        double err = 1;
+
+        while( sqrt - num / sqrt > err ){
+            sqrt = (sqrt + num / sqrt) / 2;
         }
 
-        return root;
-
+        return (int) sqrt;
     }
 
 }
