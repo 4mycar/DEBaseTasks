@@ -30,6 +30,12 @@ public class Condition {
             result = "3rd Quarter";
         } else if (x > 0 && y < 0) {
             result = "4th Quarter";
+        } else if (x == 0 && y == 0) {
+            result = "Zero point";
+        } else if (x != 0 && y == 0) {
+            result = "On the x axis";
+        } else if (x == 0 && y != 0) {
+            result = "On the y axis";
         } else {
             result = "No Quarter";
         }
@@ -41,12 +47,12 @@ public class Condition {
     public static double getPositiveNumSumOfNumbers (double a, double b, double c) {
         double result = 0.0;
 
-        if (a > 0)
-            result = result + a;
-        if (b > 0)
-            result = result + b;
-        if (c > 0)
-            result = result + c;
+        if (a > 0){
+            result = result + a;}
+        if (b > 0){
+            result = result + b;}
+        if (c > 0){
+            result = result + c;}
 
         return result;
     }
@@ -55,11 +61,12 @@ public class Condition {
     public static double getMaxValue (double a, double b, double c) {
 
         double result;
-
-        if (a * b * c > a + b + c)
-            result = a * b * c + 3;
+        double product = a * b * c;
+        double sum = a + b + c;
+        if (product > sum)
+            result = product + 3;
         else
-            result = a + b + c + 3;
+            result = sum + 3;
 
         return result;
     }

@@ -36,16 +36,18 @@ public class Cycle {
 
     }
 
-    public static int getSqrtByNumber (int num){
+    public static double getSqrtByNumber (int num){
 
-        int sqrt = 2;
-
-        while (sqrt*sqrt < num){
-            sqrt++;
-            System.out.println(sqrt);
+        double root = num / 2;
+        double eps = 0.01;
+        int iter = 0;
+        while( root - num / root > eps ){
+            iter++;
+            root = 0.5 * (root + num / root);
+            System.out.println(String.format("Iteration: %d : root = %f", iter, root));
         }
 
-        return sqrt;
+        return root;
 
     }
 
