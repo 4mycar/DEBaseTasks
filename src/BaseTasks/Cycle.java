@@ -42,4 +42,42 @@ public class Cycle {
         return (int) sqrt;
     }
 
+    public static int getFactorialByNumber (int num) {
+
+        if (num == 0){
+            return 1;
+        }
+
+        int result=1;
+
+        while (num>1){
+            result = result*num;
+            num--;
+        }
+
+        return result;
+    }
+
+    public static int getSumOfDightsByNumber (int num) {
+        int result = 0;
+
+        while(num != 0){
+            result += (num % 10);
+            num/=10;
+        }
+
+        return  result;
+    }
+
+    public static int reverseDightsInNumber (int num) {
+        int result=0 ;
+
+        while(num != 0){
+            result = result * 10 + (num % 10);
+            num/=10;
+        }
+
+        return  result;
+    }
+
 }

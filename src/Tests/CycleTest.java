@@ -27,4 +27,26 @@ public class CycleTest {
         assertEquals(13, Cycle.getSqrtByNumber(170));
 
     }
+
+    @Test
+    public void getFactorialByNumber() {
+        assertEquals(720, Cycle.getFactorialByNumber(6));
+        assertEquals(1, Cycle.getFactorialByNumber(0));
+
+    }
+
+    @Test
+    public void getSumOfDightsByNumber() {
+        assertEquals(13, Cycle.getSumOfDightsByNumber(3217));
+        assertEquals(5, Cycle.getSumOfDightsByNumber(5));
+
+    }
+
+    @Test
+    public void reverseDightsInNumber() {
+        assertEquals(497528, Cycle.reverseDightsInNumber(825794));
+        assertEquals(-497528, Cycle.reverseDightsInNumber(-825794));
+        assertEquals(7, Cycle.reverseDightsInNumber(7));
+
+    }
 }
