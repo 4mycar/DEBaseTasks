@@ -1,13 +1,14 @@
+import BaseTasks.Function;
 import BaseTasks.MyArray;
+
+import java.time.DayOfWeek;
 
 public class Main {
 
     public static void main(String[] args) {
        // System.out.println(Cycle.reverseDightsInNumber(825794));
 //        GuessANumber.startGame();
-        int[] array = {9, 2, 7, 3, 1, 2, 5, 4, 6};
-        System.out.println(java.util.Arrays.toString(array));
-        MyArray.getSortedArrayWithBubble(array);
-        System.out.println(java.util.Arrays.toString(array));
+        System.out.println(Function.getWeekDayNameByNum(10));
+//        System.out.println(Function.getWeekDayNameByNum(10));
     }
 }
