@@ -35,12 +35,14 @@ public class MyArray {
         return indexOfMin;
     }
 
-    public static int getSumOfOddNumsInArray (int[] arr) {
+    public static int getSumOfOddIndexesInArray(int[] arr) {
         int sumOfOddNums=0;
         int i = 0;
         int arrLength = arr.length;
         while ( i < arrLength ){
-            sumOfOddNums = (i%2!=0)? arr[i]+sumOfOddNums : sumOfOddNums;
+            if (i%2!=0){
+                sumOfOddNums += arr[i];
+            }
             i++;
         }
         return sumOfOddNums;
@@ -51,7 +53,9 @@ public class MyArray {
         int i = 0;
         int arrLength = arr.length;
         while ( i < arrLength ){
-            countOfOddNums = (i%2!=0)? countOfOddNums+1 : countOfOddNums;
+            if (arr[i]%2!=0){
+                countOfOddNums++;
+            }
             i++;
         }
         return countOfOddNums;
