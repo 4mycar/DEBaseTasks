@@ -1,3 +1,3 @@
-guessANumberRange = 1,150
+guessANumberRange = 1,100
 guessANumberTriesCount = 4
 guessANumberIsRepeat = true

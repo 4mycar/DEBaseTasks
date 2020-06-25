@@ -1,5 +1,4 @@
 package HomeWork;
-import HomeWork.Randomizer;
 import java.util.Scanner;
 
 public class GuessANumber {
