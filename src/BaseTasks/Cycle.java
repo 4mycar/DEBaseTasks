@@ -7,12 +7,11 @@ public class Cycle {
 
         int sum = 0;
         int count = 0;
+        int i= (first %2 ==0) ? first : first+1;
 
-        for (int i = first; i <= last; i++){
-            if (Condition.isEven(i)){
+        for (; i <= last; i+=2){
                 sum = sum + i;
                 count = count + 1;
-            }
         }
 
         return String.format("Range from %d to %s has %d even nums, sum is %d", first, last, count, sum);
@@ -31,26 +30,27 @@ public class Cycle {
     }
 
     public static int getSqrtByNumber (int num){
+        if (num<0){
+            throw new IllegalArgumentException("Number must be > 0");}
 
         double sqrt = num * 0.5;
-        double err = 1;
+        float err = 0.1f;
 
-        while( sqrt - num / sqrt > err ){
-            sqrt = (sqrt + num / sqrt) / 2;
-        }
+        while (sqrt - num / sqrt > err) {
+                sqrt = (sqrt + num / sqrt) / 2;
+            }
 
         return (int) sqrt;
     }
 
     public static int getFactorialByNumber (int num) {
-
-        if (num == 0){
-            return 1;
+        if (num<0){
+            throw new IllegalArgumentException("Number must be > 0");
         }
 
         int result=1;
 
-        while (num>1){
+        while (num>=2){
             result = result*num;
             num--;
         }
