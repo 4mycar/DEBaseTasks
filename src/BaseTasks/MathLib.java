@@ -44,6 +44,7 @@ public class MathLib {
     public static double getMathValue(int x) {
         return 6*Math.log(Math.sqrt(Math.pow(Math.E,x+1)+2*Math.pow(Math.E,x)*Math.cos(x)))/Math.log(x-Math.pow(Math.E,x+1)*Math.sin(x))+
                 + Math.abs(Math.cos(x)/Math.pow(Math.E,Math.sin(x)));
+
     }
 
 
