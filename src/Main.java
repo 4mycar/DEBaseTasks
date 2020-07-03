@@ -1,11 +1,13 @@
 import BaseTasks.NumberToWords;
+import BaseTasks.RandomNum;
 import HomeWork.GuessANumber;
 
 public class Main {
 
     public static void main(String[] args) {
-       // System.out.println(Cycle.reverseDightsInNumber(825794));
-        GuessANumber.startGame();
+       new RandomNum();
+        // System.out.println(Cycle.reverseDightsInNumber(825794));
+       // GuessANumber.startGame();
 //        long num1 = 914_098_439_519L;
 //        System.out.println(num1 +" = " + NumberToWords.getWordsUsingNumber(num1));
 //        long num2 = -287_711L;
