@@ -1,3 +1,4 @@
+import BaseTasks.MathLib;
 import BaseTasks.NumberToWords;
 import BaseTasks.RandomNum;
 import HomeWork.GuessANumber;
@@ -5,7 +6,7 @@ import HomeWork.GuessANumber;
 public class Main {
 
     public static void main(String[] args) {
-       new RandomNum();
+       new MathLib();
         // System.out.println(Cycle.reverseDightsInNumber(825794));
        // GuessANumber.startGame();
 //        long num1 = 914_098_439_519L;
